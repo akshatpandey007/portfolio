@@ -36,6 +36,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
       color: var(--text-color);
       line-height: 1.6;
       overflow-x: hidden;
+      cursor: none;
     }
     
     .container {
@@ -138,16 +139,60 @@ href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
       background-color: var(--secondary-color);
     }
 
-    .achievement-item {
+    .achievements-carousel {
+      width: 100%;
+      height: 100%;
+      margin-left: auto;
+      margin-right: auto;
       position: relative;
-      padding-left: 20px;
+      overflow: hidden;
+      list-style: none;
+      padding: 0;
+      z-index: 1;
     }
 
-    .achievement-item:before {
-      content: "•";
-      position: absolute;
-      left: 0;
+    .achievement-slide {
+      background-color: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--tertiary-color);
+      border-radius: 8px;
+      padding: 24px;
+      height: auto;
+      transition: border-color 0.3s ease;
+    }
+
+    .achievement-slide:hover {
+      border-color: var(--accent-color);
+    }
+
+    .swiper-pagination-bullet {
+      background: var(--tertiary-color);
+      opacity: 0.6;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: var(--accent-color);
+      opacity: 1;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
       color: var(--accent-color);
+      background-color: rgba(15, 15, 15, 0.5);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+      background-color: rgba(79, 70, 229, 0.1);
+    }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+      font-size: 18px;
+      font-weight: bold;
     }
 
     .social-icon {
@@ -682,47 +727,95 @@ href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
   </section>
 
   <!-- Achievements Carousel -->
-<section id="achievements" class="py-20 bg-black bg-opacity-20">
-  <div class="container mx-auto">
-    <div class="flex mb-12 fade-up">
-      <div class="section-letter mr-0">A</div>
-      <h2 class="section-title">chievements</h2>
-    </div>
-
-    <!-- Swiper -->
-    <div class="swiper-container fade-up">
+<!-- Achievement Carousel -->
+<div class="achievements-carousel-container mb-16 fade-up" data-delay="100">
+    <div class="swiper achievements-carousel">
       <div class="swiper-wrapper">
         <!-- Slide 1 -->
-        <div class="swiper-slide p-6 border border-gray-700 rounded-lg">
-          <h3 class="font-medium text-xl mb-2">ICPC 2020 Amritapuri Regionalist</h3>
-          <p class="text-gray-400">
-            Ranked among top 10% teams with complex algorithm implementation and optimization.
-          </p>
+        <div class="swiper-slide">
+          <div class="achievement-slide">
+            <h3 class="font-medium text-xl mb-4">ICPC 2020 Amritapuri Regionalist</h3>
+            <p class="text-gray-400 mb-3">
+              Qualified for the prestigious ACM-ICPC regional competition, demonstrating strong problem-solving abilities and algorithmic thinking.
+            </p>
+            <p class="text-gray-400">
+              Our team ranked among the top 10% participants, solving complex algorithm challenges under tight time constraints.
+            </p>
+          </div>
         </div>
+        
         <!-- Slide 2 -->
-        <div class="swiper-slide p-6 border border-gray-700 rounded-lg">
-          <h3 class="font-medium text-xl mb-2">CodeChef 4★</h3>
-          <p class="text-gray-400">
-            Solved 300+ algorithmic problems demonstrating strong problem-solving abilities.
-          </p>
+        <div class="swiper-slide">
+          <div class="achievement-slide">
+            <h3 class="font-medium text-xl mb-4">CodeChef 4★ Programmer</h3>
+            <p class="text-gray-400 mb-3">
+              Achieved 4-star rating on CodeChef, placing in the top 5% of active competitive programmers on the platform.
+            </p>
+            <p class="text-gray-400">
+              Solved over 300 algorithmic problems across various domains including dynamic programming, graph algorithms, and computational geometry.
+            </p>
+          </div>
         </div>
+        
         <!-- Slide 3 -->
-        <div class="swiper-slide p-6 border border-gray-700 rounded-lg">
-          <h3 class="font-medium text-xl mb-2">JEE Advanced AIR 8503</h3>
-          <p class="text-gray-400">
-            Top 1% rank among 250k+ candidates in one of India's most competitive engineering exams.
-          </p>
+        <div class="swiper-slide">
+          <div class="achievement-slide">
+            <h3 class="font-medium text-xl mb-4">JEE Advanced AIR 8503</h3>
+            <p class="text-gray-400 mb-3">
+              Secured a top 1% rank among 250,000+ candidates in one of India's most competitive engineering entrance examinations.
+            </p>
+            <p class="text-gray-400">
+              This achievement demonstrated strong analytical abilities and problem-solving skills across physics, chemistry, and mathematics.
+            </p>
+          </div>
         </div>
-        <!-- …add more slides as needed… -->
+        
+        <!-- Slide 4 -->
+        <div class="swiper-slide">
+          <div class="achievement-slide">
+            <h3 class="font-medium text-xl mb-4">Goldman Sachs Star Performer</h3>
+            <p class="text-gray-400 mb-3">
+              Recognized as a Star Performer for exceptional contributions to critical financial data processing systems.
+            </p>
+            <p class="text-gray-400">
+              The optimization techniques implemented resulted in a 35% reduction in processing time for daily financial transactions, significantly improving system reliability.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Slide 5 -->
+        <div class="swiper-slide">
+          <div class="achievement-slide">
+            <h3 class="font-medium text-xl mb-4">Google Cloud Certified Professional</h3>
+            <p class="text-gray-400 mb-3">
+              Earned Google Cloud Professional Data Engineer certification, demonstrating expertise in designing and implementing data processing systems.
+            </p>
+            <p class="text-gray-400">
+              Applied these skills to migrate on-premise applications to cloud infrastructure, resulting in 40% cost savings and improved scalability.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Slide 6 -->
+        <div class="swiper-slide">
+          <div class="achievement-slide">
+            <h3 class="font-medium text-xl mb-4">Hackathon Winner - FinTech Innovation</h3>
+            <p class="text-gray-400 mb-3">
+              Led a team of 4 engineers to win the internal Goldman Sachs FinTech Innovation Hackathon.
+            </p>
+            <p class="text-gray-400">
+              Our team developed a real-time transaction monitoring system that used machine learning to detect anomalous patterns, improving fraud detection by 28%.
+            </p>
+          </div>
+        </div>
       </div>
-      <!-- Add Pagination -->
-      <div class="swiper-pagination mt-4"></div>
+      
+      <!-- Pagination and Navigation -->
+      <div class="swiper-pagination mt-6"></div>
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
-
     </div>
   </div>
-</section>
 
 
   <!-- Contact Section -->
