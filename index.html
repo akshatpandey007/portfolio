@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akshat Pandey | Software Engineer</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@4.5.0/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+  <!-- Swiper -->
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <style>
+    :root {
+      --bg-color: #0f0f0f;
+      --text-color: #e0e0e0;
+      --accent-color: #4f46e5;
+      --secondary-color: #8884ff;
+      --tertiary-color: #444444;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html{
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .nav-item {
+      position: relative;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 14px;
+    }
+    
+    .nav-item:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: -2px;
+      left: 0;
+      background-color: var(--accent-color);
+      transition: all 0.3s ease;
+    }
+    
+    .nav-item:hover:after {
+      width: 100%;
+    }
+    
+    .section-title {
+      font-size: 3rem;
+      font-weight: 300;
+      letter-spacing: -1px;
+      margin-bottom: 2rem;
+      color: var(--text-color);
+    }
+    
+    .section-letter {
+      font-size: 6rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      opacity: 0.8;
+      line-height: 0.8;
+    }
+    
+    .project-card {
+      position: relative;
+      transition: all 0.3s ease;
+      border: 1px solid var(--tertiary-color);
+      overflow: hidden;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-color);
+    }
+    
+    .skill-tag {
+      background-color: rgba(79, 70, 229, 0.1);
+      color: var(--accent-color);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      margin: 4px;
+      display: inline-block;
+      border: 1px solid rgba(79, 70, 229, 0.3);
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--tertiary-color);
+      color: var(--text-color);
+      transition: all 0.3s ease;
+    }
+    
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--accent-color);
+      outline: none;
+    }
+    
+    .btn {
+      background-color: var(--accent-color);
+      color: white;
+      padding: 10px 24px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 14px;
+    }
+    
+    .btn:hover {
+      background-color: var(--secondary-color);
+    }
+
+    .achievement-item {
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .achievement-item:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+    }
+
+    .social-icon {
+      font-size: 1.5rem;
+      margin-right: 20px;
+      color: var(--text-color);
+      transition: all 0.3s ease;
+    }
+
+    .social-icon:hover {
+      color: var(--accent-color);
+    }
+
+    .spacer {
+      height: 150px;
+    }
+
+    .cursor-dot {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      background-color: var(--accent-color);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease;
+    }
+    
+    .cursor-outline {
+      position: fixed;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(79, 70, 229, 0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease;
+    }
+    
+    /* Timeline styling */
+    .timeline {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      background-color: var(--tertiary-color);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -1px;
+    }
+
+    .timeline-container {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+    }
+
+    .timeline-left {
+      left: 0;
+    }
+
+    .timeline-right {
+      left: 50%;
+    }
+
+    .timeline-container::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background-color: var(--accent-color);
+      border-radius: 50%;
+      top: 15px;
+      z-index: 1;
+    }
+
+    .timeline-left::after {
+      right: -8px;
+    }
+
+    .timeline-right::after {
+      left: -8px;
+    }
+
+    .timeline-content {
+      padding: 20px 30px;
+      border-radius: 6px;
+      position: relative;
+      border: 1px solid var(--tertiary-color);
+      transition: all 0.3s ease;
+    }
+
+    .timeline-content:hover {
+      border-color: var(--accent-color);
+    }
+    
+    /* Animation classes */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .appear {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+    
+    @media screen and (max-width: 768px) {
+      .timeline::after {
+        left: 31px;
+      }
+      
+      .timeline-container {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      
+      .timeline-right {
+        left: 0%;
+      }
+      
+      .timeline-container::after {
+        left: 23px;
+      }
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-family: 'Inter', sans-serif;
+      text-decoration: none;
+      color: white;
+      transition: color 0.3s ease;
+    }
+
+    .logo:hover {
+      color: var(--accent-color);
+    }
+
+    .logo-mark {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.25rem;
+      background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      margin-right: 12px;
+      letter-spacing: -1px;
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-outline" id="cursor-outline"></div>
+
+  <!-- Header -->
+  <header class="py-8">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="#" class="logo">
+        <div class="logo-mark">AP</div>
+      </a>
+      <nav class="hidden md:flex space-x-8">
+        <a href="#about" class="nav-item">About</a>
+        <a href="#experience" class="nav-item">Experience</a>
+        <a href="#projects" class="nav-item">Projects</a>
+        <a href="blog.html" class="nav-item">Blog</a>
+        <a href="#skills" class="nav-item">Skills</a>
+        <a href="#achievements" class="nav-item">Achievements</a>
+        <a href="#contact" class="nav-item">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="py-20">
+    <div class="container mx-auto">
+      <div class="flex flex-col md:flex-row items-center justify-between">
+        <div class="md:w-1/2 mb-10 md:mb-0 fade-up">
+          <div class="text-4xl md:text-6xl font-light mb-4 leading-tight">
+            <div>Software</div>
+            <div>Engineer</div>
+            <div class="text-sm mt-2 text-gray-400">Java | Spring Boot | Microservices</div>
+          </div>
+          <p class="text-lg text-gray-400 mb-6 max-w-md">
+            Building scalable backend systems and event-driven microservices with a focus on performance and reliability.
+          </p>
+          <a href="#contact" class="btn">Get in touch</a>
+        </div>
+        <div class="md:w-1/2 text-right fade-in">
+          <div class="text-8xl md:text-9xl font-bold text-gray-800 opacity-20">&lt;/&gt;</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20">
+    <div class="container mx-auto">
+      <div class="flex mb-12 fade-up">
+        <div class="section-letter mr-0">A</div>
+        <h2 class="section-title">bout</h2>
+      </div>
+      
+      <div class="flex flex-col md:flex-row">
+        <div class="md:w-1/2 mb-8 md:mb-0 fade-up">
+          <h3 class="text-2xl font-light mb-6">Software Engineer</h3>
+          <p class="text-gray-400 mb-6">
+            With over 3 years of experience at Goldman Sachs, I specialize in event-driven microservices, 
+            data processing, and building scalable backend systems. I'm passionate about creating 
+            efficient and reliable software solutions that handle complex business requirements.
+          </p>
+          <p class="text-gray-400 mb-6">
+            My expertise encompasses Java, Spring Boot, Apache Spark, and Kafka, with a strong focus on 
+            building reliable and performant applications that process millions of transactions daily. I've contributed to 
+            critical financial systems that require high availability and strict compliance with regulations.
+          </p>
+          <p class="text-gray-400">
+            I'm a problem solver at heart with a background in competitive programming, always looking 
+            to optimize and improve the systems I work with. My approach combines technical excellence with 
+            an understanding of business objectives to deliver solutions that drive real value.
+          </p>
+        </div>
+        
+        <div class="md:w-1/2 md:pl-12 fade-up" data-delay="200">
+          <h3 class="text-2xl font-light mb-6">Education</h3>
+          <div class="mb-8">
+            <div class="text-lg font-medium">National Institute of Technology, Delhi (NITD)</div>
+            <div class="text-gray-400">B.Tech in Electronics and Communication Engineering</div>
+            <div class="text-gray-500 text-sm">Aug 2018 – Mar 2022</div>
+            <div class="text-gray-400 mt-2">GPA: 8.0/10</div>
+            <p class="text-gray-400 mt-3">
+              Focused on embedded systems and digital signal processing while developing a strong foundation in computer science through electives and personal projects.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-20 bg-black bg-opacity-30">
+    <div class="container mx-auto">
+      <div class="flex mb-12 fade-up">
+        <div class="section-letter mr-0">E</div>
+        <h2 class="section-title">xperience</h2>
+      </div>
+      
+      <div class="timeline">
+        <div class="timeline-container timeline-left fade-in">
+          <div class="timeline-content slide-in-right">
+            <div class="text-xl font-medium mb-2">Software Engineer</div>
+            <div class="text-lg text-gray-400 mb-1">Goldman Sachs, Hyderabad</div>
+            <div class="text-sm text-gray-500 mb-4">June 2022 – Present</div>
+            <p class="mb-4">
+              Developed event-driven microservices with Spring Boot and Apache Spark, processing 10M+ daily transactions for real-time fraud detection. Leveraged Apache Kafka for asynchronous event streaming, reducing latency by 15%.
+            </p>
+          </div>
+        </div>
+        
+        <div class="timeline-container timeline-right fade-in" data-delay="200">
+          <div class="timeline-content slide-in-left">
+            <p class="mb-4">
+              Designed RESTful APIs (Spring Boot) following 12-factor principles, achieving 90% test coverage (JUnit5, Mockito). Integrated MongoDB and Redis for schema management, improving metadata retrieval speed by 25%.
+            </p>
+          </div>
+        </div>
+        
+        <div class="timeline-container timeline-left fade-in" data-delay="400">
+          <div class="timeline-content slide-in-right">
+            <p class="mb-4">
+              Engineered a data masking framework (Python, Spark) to anonymize sensitive fields, ensuring 100% GDPR compliance for transaction processing. The framework became a standard solution adopted by multiple teams across the organization.
+            </p>
+          </div>
+        </div>
+        
+        <div class="timeline-container timeline-right fade-in" data-delay="600">
+          <div class="timeline-content slide-in-left">
+            <p class="mb-4">
+              Revamped GitLab CI/CD pipelines, reducing deployment time by 20% and enabling zero-downtime releases. Monitored production health via Grafana, resolving 50+ incidents with 99.9% system uptime and establishing a culture of proactive monitoring.
+            </p>
+          </div>
+        </div>
+        
+        <div class="timeline-container timeline-left fade-in" data-delay="800">
+          <div class="timeline-content slide-in-right">
+            <p class="mb-4">
+              Delivered 50+ ETL pipelines for US Deposits Consumers with 99.9% reliability. Integrated vendor systems via SFTP and S3 buckets, ensuring data retention compliance while optimizing storage costs by implementing data lifecycle policies.
+            </p>
+          </div>
+        </div>
+        
+        <div class="timeline-container timeline-right fade-in" data-delay="1000">
+          <div class="timeline-content slide-in-left">
+            <p class="mb-4">
+              Led the architectural design and implementation of a real-time transaction monitoring system that improved fraud detection rates by 30%. Implemented adaptive machine learning models that continuously improved accuracy based on feedback loops.
+            </p>
+          </div>
+        </div>
+        
+        <div class="timeline-container timeline-left fade-in" data-delay="1200">
+          <div class="timeline-content slide-in-right">
+            <p class="mb-4">
+              Mentored 3 interns and onboarded 5 new hires through code reviews and technical workshops, boosting team productivity by 30%. Created comprehensive documentation and training materials that reduced onboarding time from 3 weeks to 10 days.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20">
+    <div class="container mx-auto">
+      <div class="flex mb-12 fade-up">
+        <div class="section-letter mr-0">P</div>
+        <h2 class="section-title">rojects</h2>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="project-card p-6 rounded-lg hover:shadow-lg transition-all fade-up">
+          <h3 class="text-xl font-medium mb-2">My Campus App</h3>
+          <div class="text-sm text-gray-400 mb-4">React Native, Firebase, Redux</div>
+          <p class="text-gray-300 mb-4">
+            Built a real-time campus utility app for tracking lecture halls, class schedules, and mess menus, adopted by 150+ students and faculty at NIT Delhi.
+          </p>
+          <p class="text-gray-400 mb-3">
+            Reduced scheduling conflicts by 40% and improved resource utilization. Implemented real-time notifications for schedule changes and important announcements.
+          </p>
+          <p class="text-gray-400">
+            Features included interactive campus map, personalized class schedules, mess menu ratings, and a lost & found section. User engagement reached 85% weekly active users within two months of launch.
+          </p>
+        </div>
+        
+        <div class="project-card p-6 rounded-lg hover:shadow-lg transition-all fade-up" data-delay="200">
+          <h3 class="text-xl font-medium mb-2">Fraud Detection System</h3>
+          <div class="text-sm text-gray-400 mb-4">Spring Boot, Apache Kafka, Apache Spark, Machine Learning</div>
+          <p class="text-gray-300 mb-4">
+            Designed and implemented a real-time fraud detection system processing millions of daily transactions with low latency requirements. Combined rule-based detection with machine learning models for adaptive threat identification.
+          </p>
+          <p class="text-gray-400 mb-3">
+            Reduced false positives by 30% while maintaining 99.8% detection accuracy. The system processes transactions in under 50ms, allowing for real-time intervention before fraudulent transactions complete.
+          </p>
+          <p class="text-gray-400">
+            Implemented a feedback loop that continuously improves model accuracy based on confirmed fraud cases and false positives. The system now serves as a core component of Goldman Sachs' risk management infrastructure.
+          </p>
+        </div>
+        
+        <div class="project-card p-6 rounded-lg hover:shadow-lg transition-all fade-up" data-delay="400">
+          <h3 class="text-xl font-medium mb-2">Data Masking Framework</h3>
+          <div class="text-sm text-gray-400 mb-4">Python, Apache Spark, AWS S3, Docker</div>
+          <p class="text-gray-300 mb-4">
+            Engineered a comprehensive data masking framework to anonymize sensitive customer information while preserving data utility for analytics, compliance reporting, and system testing.
+          </p>
+          <p class="text-gray-400 mb-3">
+            Ensured 100% GDPR compliance while maintaining analytical capabilities through advanced tokenization and pseudonymization techniques. Implemented context-aware masking that maintains data relationships and referential integrity.
+          </p>
+          <p class="text-gray-400">
+            The framework now processes over 5TB of data daily and has been adopted by 12 teams across the organization. Received recognition from the company's data governance council for contribution to data security practices.
+          </p>
+        </div>
+        
+        <div class="project-card p-6 rounded-lg hover:shadow-lg transition-all fade-up" data-delay="600">
+          <h3 class="text-xl font-medium mb-2">CI/CD Pipeline Optimization</h3>
+          <div class="text-sm text-gray-400 mb-4">GitLab CI/CD, Docker, Kubernetes, Terraform</div>
+          <p class="text-gray-300 mb-4">
+            Revamped deployment pipelines to enable zero-downtime releases and automated testing, significantly improving development velocity and reliability for a team of 25 engineers.
+          </p>
+          <p class="text-gray-400 mb-3">
+            Reduced deployment time by 20% and eliminated deployment-related incidents. Implemented comprehensive test automation that increased test coverage from 70% to 95%, catching potential issues before they reached production.
+          </p>
+          <p class="text-gray-400">
+            Designed a multi-stage pipeline with automated security scanning, performance testing, and canary deployments. The approach was documented as a best practice and adopted by multiple teams at Goldman Sachs.
+          </p>
+        </div>
+        
+        <div class="project-card p-6 rounded-lg hover:shadow-lg transition-all fade-up" data-delay="800">
+          <h3 class="text-xl font-medium mb-2">Transaction Monitoring Dashboard</h3>
+          <div class="text-sm text-gray-400 mb-4">React, D3.js, Spring Boot, WebSockets</div>
+          <p class="text-gray-300 mb-4">
+            Created a real-time monitoring dashboard that visualizes transaction flows, system health metrics, and potential fraud indicators for operations teams.
+          </p>
+          <p class="text-gray-400 mb-3">
+            Reduced incident response time by 65% through intelligent alerting and intuitive visualizations. The dashboard provides comprehensive views from high-level system status to detailed transaction forensics.
+          </p>
+          <p class="text-gray-400">
+            Implemented predictive analytics to forecast system load and potential bottlenecks, enabling proactive scaling before performance degradation. The solution is now used by 30+ operations staff and has become essential for daily monitoring.
+          </p>
+        </div>
+        
+        <div class="project-card p-6 rounded-lg hover:shadow-lg transition-all fade-up" data-delay="1000">
+          <h3 class="text-xl font-medium mb-2">Distributed Cache Solution</h3>
+          <div class="text-sm text-gray-400 mb-4">Redis, Spring Cache, Java, Docker</div>
+          <p class="text-gray-300 mb-4">
+            Designed and implemented a distributed caching solution for high-frequency data lookups in a microservices environment, dramatically improving application response times.
+          </p>
+          <p class="text-gray-400 mb-3">
+            Reduced average API response time from 120ms to 15ms for cached requests. Implemented intelligent cache invalidation strategies to maintain data consistency across distributed systems.
+          </p>
+          <p class="text-gray-400">
+            Created a centralized cache management console that provides real-time visibility into cache performance, hit rates, and memory usage. The solution handles over 10,000 requests per second with 99.99% availability.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 bg-black bg-opacity-30">
+    <div class="container mx-auto">
+      <div class="flex mb-12 fade-up">
+        <div class="section-letter mr-0">S</div>
+        <h2 class="section-title">kills</h2>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="fade-up">
+          <h3 class="text-2xl font-light mb-6">Languages</h3>
+          <div class="flex flex-wrap">
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">Shell Scripting</span>
+          </div>
+          
+          <h3 class="text-2xl font-light mt-8 mb-6">Frameworks</h3>
+          <div class="flex flex-wrap">
+            <span class="skill-tag">Spring Boot</span>
+            <span class="skill-tag">Apache Spark</span>
+            <span class="skill-tag">Apache Kafka</span>
+            <span class="skill-tag">JUnit</span>
+            <span class="skill-tag">Mockito</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">React Native</span>
+            <span class="skill-tag">Hibernate</span>
+            <span class="skill-tag">Spring Cloud</span>
+          </div>
+          
+          <h3 class="text-2xl font-light mt-8 mb-6">Databases</h3>
+          <div class="flex flex-wrap">
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">Redis</span>
+            <span class="skill-tag">AWS S3</span>
+            <span class="skill-tag">Iceberg</span>
+            <span class="skill-tag">Oracle</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">Elasticsearch</span>
+            <span class="skill-tag">DynamoDB</span>
+          </div>
+        </div>
+        
+        <div class="fade-up" data-delay="200">
+          <h3 class="text-2xl font-light mb-6">Tools</h3>
+          <div class="flex flex-wrap">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">GitLab CI/CD</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Kubernetes</span>
+            <span class="skill-tag">Terraform</span>
+            <span class="skill-tag">Swagger</span>
+            <span class="skill-tag">Grafana</span>
+            <span class="skill-tag">Kibana</span>
+            <span class="skill-tag">Prometheus</span>
+            <span class="skill-tag">Jenkins</span>
+            <span class="skill-tag">Jira</span>
+          </div>
+          
+          <h3 class="text-2xl font-light mt-8 mb-6">Concepts</h3>
+          <div class="flex flex-wrap">
+            <span class="skill-tag">REST APIs</span>
+            <span class="skill-tag">Microservices</span>
+            <span class="skill-tag">ETL</span>
+            <span class="skill-tag">Distributed Systems</span>
+            <span class="skill-tag">Data Processing</span>
+            <span class="skill-tag">CI/CD</span>
+            <span class="skill-tag">Test-Driven Development</span>
+            <span class="skill-tag">Agile Methodologies</span>
+            <span class="skill-tag">Domain-Driven Design</span>
+            <span class="skill-tag">System Design</span>
+            <span class="skill-tag">Event Sourcing</span>
+            <span class="skill-tag">CQRS</span>
+          </div>
+          
+          <h3 class="text-2xl font-light mt-8 mb-6">Soft Skills</h3>
+          <div class="flex flex-wrap">
+            <span class="skill-tag">Problem Solving</span>
+            <span class="skill-tag">Mentoring</span>
+            <span class="skill-tag">Technical Documentation</span>
+            <span class="skill-tag">Team Collaboration</span>
+            <span class="skill-tag">Communication</span>
+            <span class="skill-tag">Leadership</span>
+            <span class="skill-tag">Project Management</span>
+            <span class="skill-tag">Code Reviews</span>
+            <span class="skill-tag">Knowledge Sharing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements Carousel -->
+<section id="achievements" class="py-20 bg-black bg-opacity-20">
+  <div class="container mx-auto">
+    <div class="flex mb-12 fade-up">
+      <div class="section-letter mr-0">A</div>
+      <h2 class="section-title">chievements</h2>
+    </div>
+
+    <!-- Swiper -->
+    <div class="swiper-container fade-up">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide p-6 border border-gray-700 rounded-lg">
+          <h3 class="font-medium text-xl mb-2">ICPC 2020 Amritapuri Regionalist</h3>
+          <p class="text-gray-400">
+            Ranked among top 10% teams with complex algorithm implementation and optimization.
+          </p>
+        </div>
+        <!-- Slide 2 -->
+        <div class="swiper-slide p-6 border border-gray-700 rounded-lg">
+          <h3 class="font-medium text-xl mb-2">CodeChef 4★</h3>
+          <p class="text-gray-400">
+            Solved 300+ algorithmic problems demonstrating strong problem-solving abilities.
+          </p>
+        </div>
+        <!-- Slide 3 -->
+        <div class="swiper-slide p-6 border border-gray-700 rounded-lg">
+          <h3 class="font-medium text-xl mb-2">JEE Advanced AIR 8503</h3>
+          <p class="text-gray-400">
+            Top 1% rank among 250k+ candidates in one of India's most competitive engineering exams.
+          </p>
+        </div>
+        <!-- …add more slides as needed… -->
+      </div>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination mt-4"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20">
+    <div class="container mx-auto">
+      <div class="flex mb-12 fade-up">
+        <div class="section-letter mr-0">C</div>
+        <h2 class="section-title">ontact</h2>
+      </div>
+      
+      <div class="flex flex-col md:flex-row justify-between">
+        <div class="md:w-1/2 mb-12 md:mb-0 fade-up">
+          <h3 class="text-2xl font-light mb-6">Get in touch</h3>
+          <p class="text-gray-400 mb-8 max-w-md">
+            Feel free to reach out if you want to collaborate on a project, discuss a job opportunity, or just have a chat about technology and innovative solutions in the fintech space.
+          </p>
+          
+          <div class="mb-6">
+            <div class="text-gray-400 mb-1">Email</div>
+            <a href="mailto:akshatapandey55@gmail.com" class="text-white hover:text-accent-color transition-colors">akshatapandey55@gmail.com</a>
+          </div>
+          
+          <div class="mb-8">
+            <div class="text-gray-400 mb-1">LinkedIn</div>
+            <a href="https://linkedin.com/in/akshatapandey55" target="_blank" class="text-white hover:text-accent-color transition-colors">linkedin.com/in/akshatapandey55</a>
+          </div>
+          
+          <div class="flex">
+            <a href="https://linkedin.com/in/akshatapandey55" target="_blank" class="social-icon">
+              <i class="ri-linkedin-fill"></i>
+            </a>
+            <a href="https://github.com/akshat-pandey" target="_blank" class="social-icon">
+              <i class="ri-github-fill"></i>
+            </a>
+            <a href="mailto:akshatapandey55@gmail.com" class="social-icon">
+              <i class="ri-mail-fill"></i>
+            </a>
+            <a href="https://leetcode.com/akshatapandey55" target="_blank" class="social-icon">
+              <i class="ri-code-fill"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="md:w-1/2 max-w-md fade-up" data-delay="200">
+          <form class="contact-form">
+            <div class="mb-6">
+              <label for="name" class="block text-sm text-gray-400 mb-2">Name</label>
+              <input type="text" id="name" name="name" class="w-full p-3 rounded-md" required>
+            </div>
+            
+            <div class="mb-6">
+              <label for="email" class="block text-sm text-gray-400 mb-2">Email</label>
+              <input type="email" id="email" name="email" class="w-full p-3 rounded-md" required>
+            </div>
+            
+            <div class="mb-6">
+              <label for="message" class="block text-sm text-gray-400 mb-2">Message</label>
+              <textarea id="message" name="message" rows="5" class="w-full p-3 rounded-md" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 text-center text-gray-500 text-sm">
+    <div class="container mx-auto">
+      <p>© 2023 Akshat Pandey. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="spacer"></div>
+
+  <script>
+    // Custom cursor
+    document.addEventListener('DOMContentLoaded', () => {
+      const cursorDot = document.querySelector('#cursor-dot');
+      const cursorOutline = document.querySelector('#cursor-outline');
+      
+      window.addEventListener('mousemove', (e) => {
+        const posX = e.clientX;
+        const posY = e.clientY;
+        
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
+        
+        cursorOutline.style.left = `${posX}px`;
+        cursorOutline.style.top = `${posY}px`;
+      });
+      
+      // Hover effect on clickable elements
+      document.querySelectorAll('a, button, .nav-item, .project-card').forEach(item => {
+        item.addEventListener('mouseenter', () => {
+          cursorOutline.style.width = '50px';
+          cursorOutline.style.height = '50px';
+          cursorOutline.style.backgroundColor = 'rgba(79, 70, 229, 0.1)';
+        });
+        
+        item.addEventListener('mouseleave', () => {
+          cursorOutline.style.width = '40px';
+          cursorOutline.style.height = '40px';
+          cursorOutline.style.backgroundColor = 'transparent';
+        });
+      });
+      
+      // Smooth scrolling for navigation
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+      
+      // Scroll animations
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+      
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const element = entry.target;
+            const delay = element.getAttribute('data-delay') || 0;
+            
+            setTimeout(() => {
+              element.classList.add('appear');
+            }, delay);
+            
+            observer.unobserve(element);
+          }
+        });
+      }, observerOptions);
+      
+      document.querySelectorAll('.fade-up, .fade-in, .slide-in-left, .slide-in-right').forEach(element => {
+        observer.observe(element);
+      });
+
+      // Replace your old init with this:
+      new Swiper('.swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        // optional arrows—add the two divs below in your HTML if you want prev/next buttons
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    });
+      async function loadDevto() {
+      const res = await fetch('https://dev.to/api/articles?username=akshat-pandey');
+      const posts = await res.json();
+      const container = document.getElementById('devto-posts');
+      posts.slice(0, 6).forEach(post => {
+        const card = document.createElement('a');
+        card.href = post.url;
+        card.target = '_blank';
+        card.className = 'block p-6 border border-gray-700 rounded-lg hover:border-accent-color transition';
+        card.innerHTML = `
+          <h3 class="text-xl font-medium mb-2">${post.title}</h3>
+          <p class="text-gray-400 mb-4">${post.description}</p>
+          <span class="text-sm text-gray-500">${new Date(post.published_timestamp).toLocaleDateString()}</span>
+        `;
+        container.appendChild(card);
+      });
+    }
+    loadDevto();
+  </script>
+</body>
+</html>
