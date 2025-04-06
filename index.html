@@ -728,7 +728,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
 
   <!-- Achievements Carousel -->
 <!-- Achievement Carousel -->
-<div class="achievements-carousel-container mb-16 fade-up" data-delay="100">
+<div id="achievements" class="achievements-carousel-container mb-16 fade-up" data-delay="100">
     <div class="swiper achievements-carousel">
       <div class="swiper-wrapper">
         <!-- Slide 1 -->
@@ -994,6 +994,38 @@ href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
         container.appendChild(card);
       });
     }
+    const achievementSwiper = new Swiper('.achievements-carousel', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        grabCursor: true,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+        }
+      });
     loadDevto();
   </script>
 </body>
